@@ -10,9 +10,49 @@ of computation. Turing machine is the simplest model capable of executing any
 algorithm. It uses band (a.k.a input/output), head (pointing at a cell on the
 band) and it's own state 
 
-Universal Turing Machine is a generalization of Turing machine which can
+Universal Turing Machine (UTM) is a generalization of Turing machine which can
 simulate any arbitrary Turing machine on arbitrary input. It achieve it by
 geting as an input not only the band, but also a state-transition table.
+
+UTM can be defined six-tuple M = (𝖰, Σ, ι, \_, 𝖠, 𝛿), where
+
+- Q is a finite set of states––inner machine state
+- Σ is a finite set of symbols––the tape alphabet
+- ι is the initial state, where ι is in machine state Q
+- \_ is the blank symbol, where \_ is in alphabet Σ
+- 𝖠 is the set of final states (subset of all states Q)––whenever machine reach the state, it terminate.
+- 𝛿 is a state-transition relation, Fromaly it's defined as a function 𝛿: (Q\𝖠 x Σ) → (Q x Σ x {L, S, R}). The domain (Q\𝖠 x Σ) defines all machines states (minus the final states) and symbols on tape, the codomain (Q x Σ x {L, R, S}) defines the new state of the machine, symbol writen to tape, and move of the head: Left, Right, or Stay,
+
+
+## Summator
+
+This source code implements both Universal Turing Machine (UTM), and concrete
+algorithm––unsigned integer binary summator. The state-transition 𝛿 is as
+follows:
+
+𝛿(0,0) = (0,0,R)
+𝛿(0,1) = (0,1,R)
+𝛿(0,\_) = (1,\_,R)
+
+𝛿(0,0) = (1,0,R)
+𝛿(0,1) = (1,1,R)
+𝛿(0,\_) = (2,\_,L)
+
+𝛿(2,0) = (2,1,R)
+𝛿(2,1) = (3,0,R)
+𝛿(2,\_) = (5,\_,L)
+
+𝛿(3,0) = (3,0,L)
+𝛿(3,1) = (3,1,L)
+𝛿(3,\_) = (4,\_,L)
+
+𝛿(4,0) = (0,1,R)
+𝛿(4,1) = (4,0,L)
+𝛿(4,\_) = (0,1,R)
+
+𝛿(5,0) = (5,\_,R)
+𝛿(5,1) = (5,\_,R)
+𝛿(5,\_) = (halt,\_,S)
 
 ## Usage
 
