@@ -16,12 +16,12 @@ geting as an input not only the band, but also a state-transition table.
 
 UTM can be defined six-tuple M = (𝖰, Σ, ι, \_, 𝖠, 𝛿), where
 
-- Q is a finite set of states––inner machine state
-- Σ is a finite set of symbols––the tape alphabet
-- ι is the initial state, where ι is in machine state Q
-- \_ is the blank symbol, where \_ is in alphabet Σ
-- 𝖠 is the set of final states (subset of all states Q)––whenever machine reach the state, it terminate.
-- 𝛿 is a state-transition relation, Fromaly it's defined as a function 𝛿: (Q\𝖠 x Σ) → (Q x Σ x {L, S, R}). The domain (Q\𝖠 x Σ) defines all machines states (minus the final states) and symbols on tape, the codomain (Q x Σ x {L, R, S}) defines the new state of the machine, symbol writen to tape, and move of the head: Left, Right, or Stay,
+- _Q_ is a finite set of states––inner machine state
+- _Σ_ is a finite set of symbols––the tape alphabet
+- _ι_ is the initial state, where _ι_ is in machine state _Q_
+- \_ is the blank symbol, where \_ is in alphabet _Σ_
+- _𝖠_ is the set of final states (subset of all states _Q_)––whenever machine reach the state, it terminate.
+- _𝛿_ is a state-transition relation, Fromaly it's defined as a function `𝛿: (Q\𝖠 x Σ) → (Q x Σ x {L, S, R})`. The domain `(Q\𝖠 x Σ)` defines all machines states (minus the final states) and symbols on tape, the codomain `(Q x Σ x {L, R, S})` defines the new state of the machine, symbol writen to tape, and move of the head: Left, Right, or Stay,
 
 
 ## Summator
