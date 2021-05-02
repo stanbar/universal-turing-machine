@@ -2,6 +2,18 @@
 
 Unsigned integer summator implemented on universal turing machine.
 
+
+## Theory
+
+Turing machine is an abstract machine used as a conceptual mathematical model
+of computation. Turing machine is the simplest model capable of executing any
+algorithm. It uses band (a.k.a input/output), head (pointing at a cell on the
+band) and it's own state 
+
+Universal Turing Machine is a generalization of Turing machine which can
+simulate any arbitrary Turing machine on arbitrary input. It achieve it by
+geting as an input not only the band, but also a state-transition table.
+
 ## Usage
 
 Execute `cargo run` and enter two numbers.
