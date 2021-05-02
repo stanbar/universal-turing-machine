@@ -6,7 +6,6 @@ Unsigned integer summator implemented on universal turing machine.
 
 Execute `cargo run` and enter two numbers.
 
-
 ## Example
 
 ```
