@@ -1,13 +1,13 @@
 mod turing_machine;
 
-use turing_machine::{Rule, Direction, TuringMachine};
+use turing_machine::{Direction, Rule, TuringMachine};
 
 use std::io::stdin;
 use std::{thread, time};
 
 fn main() {
-    println!("Bits addition using Turing Machine");
-    println!("Input two unsigned integers to add");
+    println!("--- Bits addition using Turing Machine ---");
+    println!("Enter two unsigned integers to sum: ");
 
     let mut in1 = String::new();
     stdin().read_line(&mut in1).expect("Failed to read line");
@@ -18,7 +18,7 @@ fn main() {
     let second: u32 = in2.trim().parse().expect("Invalid second integer");
 
     let input_tape = format!("{:b}_{:b}", first, second);
-    println!("Input tape is: {}", input_tape);
+    println!("Input tape is: {}\n", input_tape);
 
     let rules_bb5 = vec![
         // move right to the end of first block
@@ -49,7 +49,9 @@ fn main() {
     let mut tm_summator = TuringMachine::new("0", halting_states, '_', rules_bb5, &input_tape);
     let mut steps = 0;
     while !tm_summator.is_done() {
-        thread::sleep(time::Duration::from_millis(50));
+        thread::sleep(time::Duration::from_millis(
+            (1000u32 as f64 / (first + second) as f64) as u64,
+        ));
         println!("{}", tm_summator);
         tm_summator.step();
         steps += 1;
@@ -67,4 +69,3 @@ fn main() {
         tm_summator.tape()
     );
 }
-

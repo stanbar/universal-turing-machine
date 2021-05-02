@@ -1,3 +1,4 @@
+// Credit for https://rosettacode.org/wiki/Universal_Turing_machine#Rust
 use std::collections::VecDeque;
 use std::fmt::{Display, Formatter, Result};
 
@@ -11,7 +12,7 @@ pub struct TuringMachine<'a> {
     state: &'a str,
     terminating_states: Vec<&'a str>,
     rules: Vec<Rule<'a>>,
-    band: VecDeque<char>,
+    pub band: VecDeque<char>,
     head: usize,
     blank: char,
 }
